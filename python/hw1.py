@@ -85,6 +85,7 @@ print f(x1) # use f function to calculate y value of x1
 
 # -----------------------------------------------------------------------------
 # Answer #5
+# solve this question by numpy!
 
 import string as s
 letters = list(s.ascii_lowercase)
