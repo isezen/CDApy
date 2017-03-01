@@ -7,9 +7,9 @@ x = np.random.normal(2, 3, 100) # mean, sd, count
 n = len(x)
 
 mean = np.sum(x)/n # method 1
-mean2 = sum(x.tolist())/n # method 2
+mean2 = sum(x)/n # method 2
 
-var = np.sum(((x - mean)**2)/n) # Variance
+var = np.sum(((x - mean)**2)/float(n)) # Variance
 sd = np.sqrt(var)
 
 # compare results
@@ -19,6 +19,7 @@ np.var(x) == var # is this always TRUE?
 
 # -----------------------------------------------------------------------------
 # Answer 2
+import matplotlib as mpl
 import matplotlib.pyplot as plt # for plotting
 import matplotlib.mlab as mlab
 
@@ -30,7 +31,7 @@ sigma = np.var(x)
 n, bins, patches = plt.hist(x, facecolor='green', alpha=0.75)
 y = mlab.normpdf( bins, mu, sigma)
 l = plt.plot(bins, y, 'r--', linewidth=1)
-plt.title(r'$\mathrm{Histogram\ of\ x:}\ \mu=6,\ \sigma=14$')
+plt.title('$\mathrm{Histogram\ of\ x:}\ \mu=%s,\ \sigma=%s$' % (mu, sigma))
 plt.grid(True)
 
 # -----------------------------------------------------------------------------
